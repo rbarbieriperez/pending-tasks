@@ -1,24 +1,39 @@
-import logo from './logo.svg';
 import './App.css';
+import React from 'react';
+import AddNewTask from './Components/AddNewTask/AddNewTask';
+import TasksCategory from './Components/TasksCategory/TasksCategory';
+import Task from './Components/Task/Task';
+import UserModal from './Components/UserModal/UserModal';
+import { useEffect, useState } from 'react';
+
 
 function App() {
+  
+  const [Modal, ShowModal] = useState(true);
+
+
+  const HandleShowModal = () => {
+      return (<UserModal />)    
+  }
+
+
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+    Modal === true ? 
+    HandleShowModal():
+    <React.Fragment>
+        <header>
+            <h1>Task Manager</h1>
+        </header>
+         <main>
+            <AddNewTask/>
+            <TasksCategory categorytitle="Next Tasks" task={<Task/>}/>
+            <TasksCategory categorytitle="Actual Tasks"/>
+            <TasksCategory categorytitle="Expired Tasks"/>
+        </main> 
+    </React.Fragment>
   );
 }
 

@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300&family=Titillium+Web&display=swap');
+
+
+#newtask-section{
+    width: 97%;
+    margin-left: auto;
+    margin-right: auto;
+    border-bottom: 1px solid black;
+}
+
+
+#newtask-section p {
+    padding-top:2%;
+    margin-left: 2%;
+    font-family: 'Cairo', sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    cursor: pointer;
+    width: 15%;
+}
+
+#newtask-section p:hover{
+    color: lightgreen;
+}
+
+#task-form{
+    padding-bottom: 1%;
+    
+}
+
+#task-form label {
+    font-family: 'Cairo', sans-serif;
+    font-weight: bold;
+}
+
+
+
+#task-form input {
+    margin-left: 2.5%;
+    margin-right: 3%;
+    border-radius: 25px;
+    height: 25px;
+    border: solid 1px black;
+    padding-left: 1%;
+}
+
+#task-form input:focus{
+    outline: 1px solid lightskyblue;
+    border: none;
+}
+
+#task-form input:valid {
+    outline: 1px solid limegreen;
+    border: none;
+}
+
+#task-form input::placeholder,#task-form textarea::placeholder{
+    font-style: italic;
+    
+}
+
+#task-form button {
+    background-color: white;
+    border-radius: 50%;
+    width: auto;
+    height: auto;
+    border: none;
+    cursor: pointer;
+    float:right;
+    margin-right: 120px;
+    margin-top: -2px;
+}
+
+#task-form button img {
+    width: 32px;
+
+}
+
+
+#textarea-label {
+    float:left;
+    margin-right: 2%;
+
+}
+#taskdesc-id{
+    margin-top:2%;
+    resize: none;
+    border-radius: 25px;
+    padding: 1%;
+    font-family: 'Cairo', sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#taskdesc-id:focus {
+    outline: 1px solid lightskyblue;
+    border: none;
+}
+
+
+.form-hide{
+    display: none;
+}
+
+.form-show{
+    display: block;
+}
+

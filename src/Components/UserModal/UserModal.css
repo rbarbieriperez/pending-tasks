@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300&family=Titillium+Web&display=swap');
+
+#usermodalsection-id{
+    background-color: white;
+    width: 350px;
+    padding-top:20px;
+    padding-left: 20px;
+    padding-right: 20px; 
+    margin-left: auto;
+    margin-right: auto;
+    height: auto;
+    min-height: 150px;
+    margin-top: 250px;
+    border-radius: 25px;
+    box-shadow: 0px 0px 10px white;
+    padding-bottom: 25px;
+}
+
+
+#currentuser-id input, #newuser-id input {
+    border-radius: 25px;
+    width: 180px;
+    height: 25px;
+    padding-left: 2%;
+    margin-left: 15px;
+    border: solid 1px black;
+    margin-bottom: 10px;
+}
+
+#newuser-id input{
+    width:145px !important;
+}
+#currentuser-id label, #newuser-id label  {
+    font-family: 'Cairo', sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#currentuser-id input:focus, #newuser-id input:focus{
+    outline: 1px solid lightskyblue;
+    border: none;
+}
+
+#currentuser-id {
+    border-bottom: solid 1px black;
+    width: 100%;
+}
+
+
+#newuser-id{
+    margin-top: 20px;
+}  
+
+
+
+#accessbutton-id, #registerbutton-id{
+    cursor: pointer;
+    margin-bottom: 20px;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    border-radius: 25px;
+    width: 150px;
+    height: 30px;
+    background-color: white;
+    border: solid 1px lightskyblue;
+    font-family: 'Cairo', sans-serif;
+    font-weight: bold;
+}
+
