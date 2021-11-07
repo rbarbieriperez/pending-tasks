@@ -3,15 +3,15 @@ import './Task.css';
 
 
 
-export const Task = () => {
+export const Task = (props) => {
     return(
         <React.Fragment>
             <article id="taskarticle-id">
-                <p>Sacar el perro</p><br /> 
-                <p>Nov 11, 10:00am</p>
-                <p>ETA: 30mins</p>  
-                <p>Remaining Time: 30mins</p>    
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deserunt, omnis laborum? Suscipit debitis, alias laudantium quos placeat delectus aut adipisci beatae enim quibusdam optio ut harum fugit, vel quaerat eum.</p>  
+                <p>{props.taskname}</p><br /> {/*Task's title*/}
+                <p>{props.tasktime}</p>  {/*Task's time*/}
+                <p>ETC: {props.tasketc}</p>  {/*Task's ETC*/}
+                <p>Remaining Time: 0</p>  {/*Task's Remaining time*/}   
+                <p>{props.taskdesc}</p>  {/*Task's short desc*/}
             </article>
         </React.Fragment>
     )

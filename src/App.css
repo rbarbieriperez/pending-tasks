@@ -31,4 +31,12 @@ header h1 {
   color: white;
   font-family: 'Titillium Web', sans-serif;
   font-size: 48px;
+  width: 100%;
+}
+
+header p {
+  color:white;
+  float: right;
+  margin-right: 120px;
+  margin-top:-75px;
 }
