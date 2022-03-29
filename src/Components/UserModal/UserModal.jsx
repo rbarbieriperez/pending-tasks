@@ -22,7 +22,7 @@ export const UserModal = (props, {sendUsername}) => {
         {
             if(Object.keys(data).length !== 0){
                 CloseModal();
-                props.sendUsername(correo, data);
+                props.sendUsername(data);
             } else {
                 alert("Usuario no registrado :(")
                 event.preventDefault();
