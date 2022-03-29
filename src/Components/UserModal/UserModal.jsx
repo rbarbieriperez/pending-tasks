@@ -7,45 +7,29 @@ import { createRef, useCallback, useRef } from "react/cjs/react.production.min";
 
 export const UserModal = (props, {sendUsername}) => {
     const [correo,updateCorreo ] = useState()     
-    const [JSONgetted, updateJSON] = useState({});
     const inputRef = createRef();
 
     const CloseModal = () => {
         props.HandleShowModal();
     }
 
-    /*useEffect(() => {
-        alert("correo tiene" +correo)
-        consumeAPI(`https://62423aacb6734894c14e7f14.mockapi.io/users?correo=${correo}`)
-        .then(data => {
-            updateJSON(data);
-        })
-    },[correo]);*/
 
-
-
-    const CheckIfUserExists = () => {
-        consumeAPI(`https://62423aacb6734894c14e7f14.mockapi.io/users?correo=${correo}`)
-        .then((data) => updateJSON(data))
-    }
-    
     const AccessFlow = (event) => {
 
+        event.preventDefault();
+        consumeAPI(`https://62423aacb6734894c14e7f14.mockapi.io/users?correo=${correo}`)
+        .then((data) => 
+        {
+            if(Object.keys(data).length !== 0){
+                CloseModal();
+                props.sendUsername(correo, data);
+            } else {
+                alert("Usuario no registrado :(")
+                event.preventDefault();
+            }
+            
+        })
         
-        if(inputRef.current.value !== ""){
-            updateCorreo(inputRef.current.value);
-        }
-        CheckIfUserExists();
-        
-        alert(JSON.stringify(JSONgetted))
-
-        if(Object.keys(JSONgetted).length !== 0){
-            CloseModal();
-            props.sendUsername(inputRef.current.value, JSONgetted);
-        } else {
-            alert("Usuario no registrado :(")
-            event.preventDefault();
-        }
         
         
     }
@@ -60,7 +44,7 @@ export const UserModal = (props, {sendUsername}) => {
                 <form id="currentuser-id" onSubmit={AccessFlow}>
                     <label htmlFor="username">Username:</label>
                     <input type="text" name="username" id="username-id" required="required" minLength="8" maxLength="50"  ref = {inputRef} value="rbarbieriperez@gmail.com"/> <br/>
-                    <button id="accessbutton-id">Access</button>
+                    <button id="accessbutton-id" onClick={() => {updateCorreo(inputRef.current.value);}}>Access</button>
                 </form>
                 <form action="" id="newuser-id">
                     <label htmlFor="newusername">New Username:</label>

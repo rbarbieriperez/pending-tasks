@@ -34,8 +34,7 @@ const App = (props) => {
       let userCards = []
       
       for (let element of recievedJSON){
-        //updateUserID(element.id)
-        alert(element.id)
+        
       } 
 
 
