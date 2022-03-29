@@ -5,31 +5,42 @@ import TasksCategory from './Components/TasksCategory/TasksCategory';
 import Task from './Components/Task/Task';
 import UserModal from './Components/UserModal/UserModal';
 import { useEffect, useState } from 'react';
-
+import { consumeAPI } from './Components/utilities/consumeAPI';
 
 const App = (props) => {
   
   const [Modal, ShowModal] = useState(true);
   const [username, updateUsername] = useState("")
+  const [userid, updateUserID] = useState(0);
 
   //Cards hooks
   const [actualTasks, updateActualTasks] = useState([])
   const [nextTasks, updateNextTasks] = useState([])
   const [expiredTasks, updateExpiredTasks] = useState([])
 
+
+
+  useEffect (() => {
+    consumeAPI(`https://62423aacb6734894c14e7f14.mockapi.io/users/${userid}/cards`)
+  },[userid])
+
   const HandleShowModal = () => {
        ShowModal(false)   
   }
 
-  const getCardsByUser = (username, recievedJSON) => {
+  const HandleReceivedUserData = (username, recievedJSON) => {
       //Filter the cards from the JSON by the username that's unique.
-
-     
       updateUsername(username)
       let userCards = []
       
-       
-      for(let element of Object.values(recievedJSON.cards)){
+      for (let element of recievedJSON){
+        //updateUserID(element.id)
+        alert(element.id)
+      } 
+
+
+
+     /* for(let element of Object.values(recievedJSON.cards)){
           if(element.username_card === username){
 
             let cardPreset = {
@@ -54,7 +65,7 @@ const App = (props) => {
 
           }
         
-       }   
+       }   */
        FilterPerCategory(userCards)
   }
 
@@ -116,8 +127,8 @@ const App = (props) => {
   return (
 
     Modal === true ? 
-    <UserModal HandleShowModal={HandleShowModal} sendUsername = {getCardsByUser}/>:
-    <React.Fragment>s
+    <UserModal HandleShowModal={HandleShowModal} sendUsername = {HandleReceivedUserData}/>:
+    <React.Fragment>
         <header>
             <h1>Task Manager</h1>
             <p>{"Welcome: " + username}</p>
